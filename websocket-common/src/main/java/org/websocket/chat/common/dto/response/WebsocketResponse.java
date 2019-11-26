@@ -17,10 +17,10 @@ public class WebsocketResponse {
     public WebsocketResponse() {
     }
 
-    public WebsocketResponse(WebsocketResponseStatus status) {
+    public WebsocketResponse(WebsocketResponseCommand command, WebsocketResponseStatus status) {
         this.code = status.getStatus();
         this.message = status.getMessage();
-        this.command = status.name();
+        this.command = command.name();
     }
 
     public WebsocketResponse(String command, int code, String message) {

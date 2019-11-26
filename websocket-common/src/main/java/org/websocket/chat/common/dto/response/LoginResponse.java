@@ -4,6 +4,6 @@ import org.websocket.chat.common.dto.WebsocketResponseStatus;
 
 public class LoginResponse extends WebsocketResponse {
     public LoginResponse() {
-        super(WebsocketResponseStatus.SUCCESS);
+        super(WebsocketResponseCommand.LOGIN, WebsocketResponseStatus.SUCCESS);
     }
 }

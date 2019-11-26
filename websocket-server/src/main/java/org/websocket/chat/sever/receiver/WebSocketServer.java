@@ -15,6 +15,7 @@ import org.websocket.chat.common.dto.request.ChatRequest;
 import org.websocket.chat.common.dto.request.LoginRequest;
 import org.websocket.chat.common.dto.request.WebsocketRequest;
 import org.websocket.chat.common.dto.response.WebsocketResponse;
+import org.websocket.chat.common.dto.response.WebsocketResponseCommand;
 import org.websocket.chat.sever.authentication.AuthenticationManager;
 import org.websocket.chat.sever.authentication.exception.AuthenticationFailedException;
 import org.yeauty.annotation.*;
@@ -143,10 +144,10 @@ public class WebSocketServer {
             }
         } catch (AuthenticationFailedException e) {
             logger.error(e.getMessage());
-            sendToOne(session, new WebsocketResponse(WebsocketResponseStatus.AUTHENTICATION_FAILED.name(), WebsocketResponseStatus.AUTHENTICATION_FAILED.getStatus(), WebsocketResponseStatus.AUTHENTICATION_FAILED.getMessage()));
+            sendToOne(session, new WebsocketResponse(WebsocketResponseCommand.AUTHENTICATION_FAILED, WebsocketResponseStatus.AUTHENTICATION_FAILED));
         } catch (BeansException | InvalidArgumentException e) {
             logger.error(e.getMessage(), e);
-            sendToOne(session, new WebsocketResponse(WebsocketResponseStatus.INVALID_COMMAND.name(), WebsocketResponseStatus.AUTHENTICATION_FAILED.getStatus(), WebsocketResponseStatus.AUTHENTICATION_FAILED.getMessage()));
+            sendToOne(session, new WebsocketResponse(WebsocketResponseCommand.INVALID_COMMAND, WebsocketResponseStatus.AUTHENTICATION_FAILED));
         }
     }
 

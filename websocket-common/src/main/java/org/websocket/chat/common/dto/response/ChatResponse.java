@@ -8,7 +8,7 @@ public class ChatResponse extends WebsocketResponse {
     private String text;
 
     public ChatResponse() {
-        super(WebsocketResponseStatus.SUCCESS);
+        super(WebsocketResponseCommand.CHAT, WebsocketResponseStatus.SUCCESS);
     }
 
     public String getUserId() {
