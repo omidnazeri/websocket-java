@@ -1,0 +1,5 @@
+rootProject.name = 'websocket-java'
+include "websocket-common"
+include "websocket-server"
+include "websocket-client"
+
